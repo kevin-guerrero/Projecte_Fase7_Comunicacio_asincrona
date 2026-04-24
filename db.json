@@ -1,0 +1,22 @@
+{
+  "articulos": [
+    {
+      "id": 1,
+      "titular": "¡Spider-Man destruye el puente de Brooklyn!",
+      "subtitular": "Testigos afirman que el enmascarado provocó el caos deliberadamente",
+      "cuerpo": "Nuestro reportero estrella J. Jonah Jameson denuncia que el vigilante conocido como Spider-Man...",
+      "autor": "J. Jonah Jameson",
+      "categoria": "portada",
+      "fecha": "1999-06-23",
+      "imagen": "img/brooklyn.jpg",
+      "destacado": true,
+      "vistas": 1420
+    }
+  ],
+  "categorias": ["portada", "crimen", "politica", "opinion", "sociedad"],
+  "autores": [
+    { "id": 1, "nombre": "J. Jonah Jameson", "cargo": "Director" },
+    { "id": 2, "nombre": "Betty Brant", "cargo": "Redactora jefe" },
+    { "id": 3, "nombre": "Peter Parker", "cargo": "Fotógrafo" }
+  ]
+}
