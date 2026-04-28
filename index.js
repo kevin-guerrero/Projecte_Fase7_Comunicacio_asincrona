@@ -1,9 +1,12 @@
 import express from "express";
 import fs from "fs"; //treballar amb arxius
 import bodyParser from "body-parser"; //Ho afegim per entendre que estem rebent un json des de la petició post.
+import cors from "cors";
 
 //Creo l'objecte de l'aplicació
 const app=express();
+
+app.use(cors());
 app.use(bodyParser.json())
 
 //Funció per llegir la informació
@@ -42,7 +45,7 @@ app.get("/articulos",(req,res)=>{
 //Creem un endpoint per obtenir un article per un id
 app.get("/articulos/:id",(req,res)=>{
     const data=readData();
-    //Extraiem l'id de l'url recordem que req es un objecte tipus requets
+    // Extraiem l'id de l'url recordem que req es un objecte tipus requets
     // que conté l'atribut params i el podem consultar
     const id=parseInt(req.params.id);
     const article=data.articulos.find((article)=>article.id===id);
