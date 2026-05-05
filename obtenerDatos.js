@@ -1,27 +1,110 @@
-const URL_API = 'http://localhost:3000/articulos';
+const API = 'http://localhost:3000';
 
-async function carregarNoticies() {
-    try {
-        const resposta = await fetch(URL_API);
-        const articles = await resposta.json();
-
-        const contenidor = document.getElementById('news-container');
-        contenidor.innerHTML = '';
-
-        articles.forEach(art => {
-            const noticiaHTML = `
-                <article>
-                    <h1>${art.titular}</h1>
-                    <h2>${art.subtitular}</h3>
-                </article>
-            `;
-            contenidor.innerHTML += noticiaHTML;
-        });
-
-    } catch (error) {
-        console.error("Error carregant les notícies:", error);
-        document.getElementById('news-container').innerHTML = "No s'han pogut carregar les notícies del Daily Bugle.";
-    }
+// Mostrar fecha en cabecera
+function mostrarFecha() {
+  const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const hoy = new Date().toLocaleDateString('es-ES', opciones);
+  document.getElementById('fecha-actual').textContent =
+    hoy.charAt(0).toUpperCase() + hoy.slice(1);
 }
 
-document.addEventListener('DOMContentLoaded', carregarNoticies);
+// Formatear fecha de artículo
+function formatearFecha(fechaStr) {
+  const [anio, mes, dia] = fechaStr.split('-');
+  const fecha = new Date(anio, mes - 1, dia);
+  return fecha.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// Cargar noticia destacada
+async function cargarDestacada() {
+  const seccion = document.getElementById('noticia-destacada');
+  try {
+    const respuesta = await fetch(`${API}/articulos`);
+    if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
+    const articulos = await respuesta.json();
+
+    const destacado = articulos.find(a => a.destacado) || articulos[0];
+
+    if (!destacado) {
+      seccion.innerHTML = '<p class="error-msg">No hay noticias disponibles.</p>';
+      return;
+    }
+
+    seccion.innerHTML = `
+      <div class="noticia-principal">
+        <span class="etiqueta-seccion roja">${destacado.categoria}</span>
+        <a href="view/articulo.html?id=${destacado.id}" class="titular-grande">
+          ${destacado.titular}
+        </a>
+        <p class="subtitular-grande">${destacado.subtitular}</p>
+        <p class="meta-destacado">
+          Por <strong>${destacado.autor}</strong> · ${formatearFecha(destacado.fecha)} · ${destacado.vistas.toLocaleString()} lecturas
+        </p>
+        <p class="cuerpo-preview">
+          ${destacado.cuerpo.substring(0, 300)}${destacado.cuerpo.length > 300 ? '...' : ''}
+        </p>
+        <a href="view/articulo.html?id=${destacado.id}" class="btn btn-primario" style="margin-top:1rem; display:inline-block;">Leer artículo completo</a>
+      </div>
+    `;
+  } catch (error) {
+    seccion.innerHTML = `
+      <div class="error-msg">
+        <strong>¡Imposible cargar la portada!</strong><br>
+        Asegúrate de que el servidor está activo en <code>localhost:3000</code><br>
+        <em>${error.message}</em>
+      </div>
+    `;
+  }
+}
+
+// Cargar últimas noticias
+async function cargarNoticias() {
+  const seccion = document.getElementById('lista-noticias');
+  try {
+    const respuesta = await fetch(`${API}/articulos`);
+    if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
+    const articulos = await respuesta.json();
+
+    const ultimas = articulos
+      .filter(a => !a.destacado)
+      .slice(-3)
+      .reverse();
+
+    if (ultimas.length === 0) {
+      seccion.innerHTML = '<p style="font-style:italic; color:var(--tinta-suave);">No hay más noticias por el momento.</p>';
+      return;
+    }
+
+    const lista = document.createElement('div');
+    lista.classList.add('grid-portada');
+
+    ultimas.forEach(a => {
+      const article = document.createElement('article');
+      article.classList.add('articulo-card');
+      article.addEventListener('click', () => {
+        window.location.href = `view/articulo.html?id=${a.id}`;
+      });
+      article.innerHTML = `
+        <span class="categoria-badge">${a.categoria}</span>
+        <a href="view/articulo.html?id=${a.id}" class="titular">${a.titular}</a>
+        <p class="subtitular">${a.subtitular}</p>
+        <p class="meta">
+          <span>${a.autor}</span>
+          <span>${formatearFecha(a.fecha)}</span>
+        </p>
+      `;
+      lista.appendChild(article);
+    });
+
+    seccion.innerHTML = '';
+    seccion.appendChild(lista);
+
+  } catch (error) {
+    seccion.innerHTML = `<div class="error-msg">Error al cargar las noticias: ${error.message}</div>`;
+  }
+}
+
+// Inicialización
+mostrarFecha();
+cargarDestacada();
+cargarNoticias();
