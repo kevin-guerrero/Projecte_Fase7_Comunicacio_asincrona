@@ -8,19 +8,28 @@
     <script type="module" src="obtenerDatos.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Daily Bugle</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="view/noticias.html">Noticias</a></li>
-                <li><a href="">Articulo</a></li>
-                <li><a href="">Redacción</a></li>
-                <li><a href="">Archivo</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="header-meta">
+            <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
+            <time id="fecha-actual"></time>
+            <span>Nueva York · Est. 1962</span>
+        </div>
+        <div class="cabecera-titulo">
+            <h1>The Daily Bugle</h1>
+            <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
+        </div>
     </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="view/noticias.html">Noticias</a></li>
+            <li><a href="">Articulo</a></li>
+            <li><a href="">Redacción</a></li>
+            <li><a href="">Archivo</a></li>
+            <li><a href="">Contacto</a></li>
+        </ul>
+    </nav>
     <main id="news-container">
         Carregant les últimes notícies sobre Spider-Man...
     </main>
