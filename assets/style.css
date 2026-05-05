@@ -103,3 +103,50 @@ body {
 .navbar li a:hover, .navbar li a.activo {
   background-color: var(--rojo-oscuro);
 }
+
+/* Contenedor */
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Separadores */
+
+.separador-doble {
+  border: none;
+  border-top: 3px double var(--tinta);
+  margin: 1rem 0;
+}
+
+/* Etiqueta de sección */
+
+.etiqueta-seccion {
+  display: inline-block;
+  background-color: var(--tinta);
+  color: var(--papel);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+ 
+.etiqueta-seccion.roja {
+  background-color: var(--rojo);
+}
+
+/* Footer */
+
+.site-footer {
+  background-color: var(--tinta);
+  color: var(--papel-oscuro);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

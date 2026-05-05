@@ -30,8 +30,30 @@
             <li><a href="">Contacto</a></li>
         </ul>
     </nav>
-    <main id="news-container">
-        Carregant les últimes notícies sobre Spider-Man...
+    
+    <main class="contenedor" style="padding-top: 1.5rem; padding-bottom: 2rem;">
+ 
+        <section id="noticia-destacada" aria-label="Noticia destacada">
+            <p class="cargando">Cargando portada...</p>
+        </section>
+    
+        <hr class="separador-doble">
+    
+        <section aria-label="Últimas noticias">
+            <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                <h2 class="etiqueta-seccion roja">Últimas noticias</h2>
+                <a href="view/noticias.html" style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--rojo); text-decoration:none; font-weight:700;">Ver todas →</a>
+            </header>
+            <div id="lista-noticias">
+                <p class="cargando">Cargando noticias...</p>
+            </div>
+        </section>
+ 
     </main>
+
+    <footer class="site-footer">
+        <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
+    </footer>
+ 
 </body>
 </html>
