@@ -69,16 +69,37 @@ body {
     margin-top: 4px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+/* Menu navegació */
 
-nav li {
-    margin-right: 20px;
+.navbar {
+  background-color: var(--rojo);
 }
-
-a {
-    text-decoration: none;
-    color: #fff;
+ 
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+.navbar li a {
+  display: block;
+  padding: 9px 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  transition: background-color 0.15s;
+}
+ 
+.navbar li:first-child a {
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+ 
+.navbar li a:hover, .navbar li a.activo {
+  background-color: var(--rojo-oscuro);
 }
