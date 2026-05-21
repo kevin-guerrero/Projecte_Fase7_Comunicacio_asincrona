@@ -4,19 +4,81 @@
       "id": 1,
       "titular": "¡Spider-Man destruye el puente de Brooklyn!",
       "subtitular": "Testigos afirman que el enmascarado provocó el caos deliberadamente",
-      "cuerpo": "Nuestro reportero estrella J. Jonah Jameson denuncia que el vigilante conocido como Spider-Man...",
+      "cuerpo": "Nuestro director J. Jonah Jameson denuncia que el vigilante conocido como Spider-Man es directamente responsable del caos ocurrido ayer en el puente de Brooklyn. Según testigos presenciales, el individuo enmascarado se lanzó desde lo alto de varios edificios causando pánico entre los conductores, lo que derivó en un accidente en cadena que bloqueó el tráfico durante más de tres horas. La policía de Nueva York investiga los hechos aunque se niega a calificar al arácnido como sospechoso. Desde el Daily Bugle exigimos respuestas.",
       "autor": "J. Jonah Jameson",
       "categoria": "portada",
       "fecha": "1999-06-23",
-      "imagen": "img/brooklyn.jpg",
       "destacado": true,
-      "vistas": 1420
+      "vistas": 1443
+    },
+    {
+      "id": 2,
+      "titular": "Spider-Man: ¿héroe o amenaza pública?",
+      "subtitular": "El debate que divide a Nueva York",
+      "cuerpo": "Ciudadanos de todos los barrios de Nueva York expresan opiniones encontradas sobre la figura del vigilante enmascarado. Mientras algunos le agradecen haber detenido robos y rescatado civiles en peligro, otros como nuestro director denuncian que su presencia genera más caos del que resuelve. El alcalde de la ciudad se ha negado a pronunciarse al respecto. Betty Brant ha recogido testimonios de más de veinte vecinos del Upper East Side que afirman sentirse intimidados por su presencia nocturna.",
+      "autor": "Betty Brant",
+      "categoria": "opinion",
+      "fecha": "1999-07-01",
+      "destacado": false,
+      "vistas": 985
+    },
+    {
+      "id": 3,
+      "titular": "Robado el laboratorio Oscorp: Spider-Man en el lugar de los hechos",
+      "subtitular": "La empresa de Norman Osborn sufre el robo de material radiactivo",
+      "cuerpo": "En la madrugada del martes, el laboratorio principal de Oscorp Industries fue objeto de un robo que se llevó material de investigación altamente sensible. Lo que más llama la atención es que varios guardias de seguridad afirman haber visto a un individuo con traje rojo y azul merodeando por los tejados adyacentes. Nuestro fotógrafo Peter Parker estuvo en el lugar y consiguió imágenes del enmascarado que publicamos en exclusiva.",
+      "autor": "Peter Parker",
+      "categoria": "crimen",
+      "fecha": "1999-07-10",
+      "destacado": false,
+      "vistas": 2103
+    },
+    {
+      "id": 4,
+      "titular": "El Ayuntamiento rechaza identificar a vigilantes enmascarados",
+      "subtitular": "El concejal de seguridad dice que no es prioritario",
+      "cuerpo": "La propuesta presentada por el Daily Bugle ante el Ayuntamiento de Nueva York para obligar a los vigilantes enmascarados a identificarse públicamente ha sido rechazada en comisión. El concejal de seguridad ciudadana declaró que la medida no es prioritaria y que la policía tiene suficientes recursos para gestionar la situación. Desde esta redacción consideramos que la ciudadanía tiene derecho a saber quién opera impunemente sobre sus cabezas.",
+      "autor": "J. Jonah Jameson",
+      "categoria": "politica",
+      "fecha": "1999-07-15",
+      "destacado": false,
+      "vistas": 763
+    },
+    {
+      "id": 5,
+      "titular": "Vecinos de Queens organizan una colecta para Spider-Man",
+      "subtitular": "La comunidad agradece al enmascarado haber salvado a tres niños",
+      "cuerpo": "Vecinos del barrio de Forest Hills, en Queens, han organizado una colecta popular para agradecer a Spider-Man haber rescatado a tres menores que quedaron atrapados en un incendio el pasado fin de semana. La iniciativa ha recaudado más de dos mil dólares que los organizadores planean donar al cuerpo de bomberos local. El Daily Bugle recuerda que Spider-Man opera al margen de la ley y que ningún acto aislado justifica su existencia como vigilante no regulado.",
+      "autor": "Betty Brant",
+      "categoria": "sociedad",
+      "fecha": "1999-07-20",
+      "destacado": false,
+      "vistas": 1856
     }
   ],
-  "categorias": ["portada", "crimen", "politica", "opinion", "sociedad"],
+  "categorias": [
+    "portada",
+    "crimen",
+    "politica",
+    "opinion",
+    "sociedad"
+  ],
   "autores": [
-    { "id": 1, "nombre": "J. Jonah Jameson", "cargo": "Director" },
-    { "id": 2, "nombre": "Betty Brant", "cargo": "Redactora jefe" },
-    { "id": 3, "nombre": "Peter Parker", "cargo": "Fotógrafo" }
-  ]
+    {
+      "id": 1,
+      "nombre": "J. Jonah Jameson",
+      "cargo": "Director"
+    },
+    {
+      "id": 2,
+      "nombre": "Betty Brant",
+      "cargo": "Redactora jefe"
+    },
+    {
+      "id": 3,
+      "nombre": "Peter Parker",
+      "cargo": "Fotógrafo"
+    }
+  ],
+  "tips": []
 }
