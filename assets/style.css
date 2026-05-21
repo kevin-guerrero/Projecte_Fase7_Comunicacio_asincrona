@@ -449,3 +449,131 @@ body {
 }
 
 /* Noticies */
+/* LISTA DE ARTÍCULOS (noticias.html) */
+
+.articulo-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--papel);
+  border-bottom: 1px solid var(--gris-linea);
+  padding: 1.2rem;
+  gap: 1rem;
+}
+
+.articulo-lista:hover {
+  background-color: #f9f3e3;
+}
+
+.articulo-lista-info {
+  flex: 1;
+}
+
+.articulo-lista-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* FILTROS DE CATEGORÍA */
+
+.filtros-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1rem;
+  margin-top: 0.75rem;
+}
+
+.filtro-btn {
+  background: transparent;
+  border: 1px solid var(--gris-linea);
+  color: var(--tinta-suave);
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-cuerpo);
+  transition: all 0.15s;
+}
+
+.filtro-btn:hover,
+.filtro-btn.activo {
+  background-color: var(--tinta);
+  color: var(--papel);
+  border-color: var(--tinta);
+}
+
+/* TABLA DE ARCHIVO */
+
+.archivo-controles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabla-archivo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background-color: var(--papel);
+}
+
+.tabla-archivo th {
+  background-color: var(--tinta);
+  color: var(--papel);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.tabla-archivo td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--gris-linea);
+  color: var(--tinta);
+  vertical-align: middle;
+}
+
+.tabla-archivo tr:hover td {
+  background-color: #f9f3e3;
+}
+
+.tabla-link {
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tabla-link:hover {
+  color: var(--rojo);
+}
+
+/* META DESTACADO */
+
+.meta-destacado {
+  font-size: 12px;
+  color: var(--gris-linea);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .archivo-controles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .articulo-lista {
+    flex-direction: column;
+  }
+
+  .articulo-lista-acciones {
+    flex-direction: row;
+  }
+}
