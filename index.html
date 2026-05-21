@@ -1,59 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script type="module" src="obtenerDatos.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Daily Bugle</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-meta">
-            <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
-            <time id="fecha-actual"></time>
-            <span>Nueva York · Est. 1962</span>
-        </div>
-        <div class="cabecera-titulo">
-            <h1>The Daily Bugle</h1>
-            <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
-        </div>
-    </header>
-    
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="view/noticias.html">Noticias</a></li>
-            <li><a href="">Articulo</a></li>
-            <li><a href="">Redacción</a></li>
-            <li><a href="">Archivo</a></li>
-            <li><a href="">Contacto</a></li>
-        </ul>
-    </nav>
 
-    <main class="contenedor">
- 
-        <section id="noticia-destacada" aria-label="Noticia destacada">
-            <p class="cargando">Cargando portada...</p>
-        </section>
-    
-        <hr class="separador-doble">
-    
-        <section aria-label="Últimas noticias">
-            <header class="notis-header">
-                <h2 class="etiqueta-seccion roja">Últimas noticias</h2>
-                <a href="view/noticias.html" class="notis-link">Ver todas →</a>
-            </header>
-            <div id="lista-noticias">
-                <p class="cargando">Cargando noticias...</p>
-            </div>
-        </section>
- 
-    </main>
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
+      <time id="fecha-actual"></time>
+      <span>Nueva York · Est. 1962</span>
+    </div>
+    <div class="cabecera-titulo">
+      <h1>The Daily Bugle</h1>
+      <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
+    </div>
+  </header>
 
-    <footer class="site-footer">
-        <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
-    </footer>
- 
+  <nav class="navbar" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+      <li><a href="view/noticias.html">Noticias</a></li>
+      <li><a href="view/articulo.html">Artículo</a></li>
+      <li><a href="view/redaccion.html">Redacción</a></li>
+      <li><a href="view/archivo.html">Archivo</a></li>
+      <li><a href="view/contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+
+    <section id="noticia-destacada" aria-label="Noticia destacada">
+      <p class="cargando">Cargando portada...</p>
+    </section>
+
+    <hr class="separador-doble">
+
+    <section aria-label="Últimas noticias">
+      <header class="notis-header">
+        <h2 class="etiqueta-seccion roja">Últimas noticias</h2>
+        <a href="view/noticias.html" class="notis-link">Ver todas →</a>
+      </header>
+      <div id="lista-noticias">
+        <p class="cargando">Cargando noticias...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
+  </footer>
+
+  <script src="js/index.js"></script>
+
 </body>
 </html>
