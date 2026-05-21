@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noticias — The Daily Bugle</title>
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-    
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
+      <time id="fecha-actual"></time>
+      <span>Nueva York · Est. 1962</span>
+    </div>
+    <div class="cabecera-titulo">
+      <h1>The Daily Bugle</h1>
+      <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
+    </div>
+  </header>
+
+  <nav class="navbar" aria-label="Navegación principal">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="noticias.html" class="activo" aria-current="page">Noticias</a></li>
+      <li><a href="articulo.html">Artículo</a></li>
+      <li><a href="redaccion.html">Redacción</a></li>
+      <li><a href="archivo.html">Archivo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+
+    <section aria-label="Listado de noticias">
+      <header class="notis-header" style="margin-top:1.5rem;">
+        <h2 class="etiqueta-seccion">Todas las noticias</h2>
+        <a href="redaccion.html" class="btn btn-primario">+ Nueva noticia</a>
+      </header>
+
+      <!-- Filtros por categoría -->
+      <div id="filtros" class="filtros-contenedor" role="group" aria-label="Filtrar por categoría">
+        <button class="filtro-btn activo" data-categoria="todas">Todas</button>
+      </div>
+
+      <!-- Buscador -->
+      <div class="form-grupo" style="margin-top:1rem;">
+        <label for="buscador">Buscar noticia</label>
+        <input type="search" id="buscador" placeholder="Escribe para buscar...">
+      </div>
+
+      <div id="lista-articulos">
+        <p class="cargando">Cargando noticias...</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal confirmación de borrado -->
+  <div class="modal-overlay" id="modal-borrar" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-caja">
+      <h2 id="modal-titulo">¿Eliminar artículo?</h2>
+      <p>Jameson lo desaprueba, pero tú mandas. Esta acción no se puede deshacer.</p>
+      <div class="modal-botones">
+        <button class="btn btn-peligro" id="btn-confirmar-borrar">Eliminar</button>
+        <button class="btn btn-secundario" id="btn-cancelar-borrar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
+  </footer>
+
+  <script src="../js/noticias.js"></script>
+
 </body>
 </html>
