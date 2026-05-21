@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archivo — The Daily Bugle</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-meta">
+      <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
+      <time id="fecha-actual"></time>
+      <span>Nueva York · Est. 1962</span>
+    </div>
+    <div class="cabecera-titulo">
+      <h1>The Daily Bugle</h1>
+      <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
+    </div>
+  </header>
+
+  <nav class="navbar" aria-label="Navegación principal">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="articulo.html">Artículo</a></li>
+      <li><a href="redaccion.html">Redacción</a></li>
+      <li><a href="archivo.html" class="activo" aria-current="page">Archivo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenedor">
+    <section style="margin-top:1.5rem;">
+
+      <h2 class="etiqueta-seccion">Archivo histórico</h2>
+      <hr class="separador-doble">
+
+      <!-- Controles de filtro y orden -->
+      <div class="archivo-controles">
+
+        <div class="form-grupo">
+          <label for="filtro-autor">Filtrar por autor</label>
+          <select id="filtro-autor">
+            <option value="">Todos los autores</option>
+          </select>
+        </div>
+
+        <div class="form-grupo">
+          <label for="filtro-fecha-desde">Desde</label>
+          <input type="date" id="filtro-fecha-desde">
+        </div>
+
+        <div class="form-grupo">
+          <label for="filtro-fecha-hasta">Hasta</label>
+          <input type="date" id="filtro-fecha-hasta">
+        </div>
+
+        <div class="form-grupo">
+          <label for="orden">Ordenar por fecha</label>
+          <select id="orden">
+            <option value="desc">Más recientes primero</option>
+            <option value="asc">Más antiguos primero</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Contador -->
+      <p id="contador" style="font-size:12px; color:var(--gris-linea); margin-bottom:1rem; letter-spacing:0.05em; text-transform:uppercase;"></p>
+
+      <!-- Tabla de artículos -->
+      <div id="tabla-archivo">
+        <p class="cargando">Cargando archivo...</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
+  </footer>
+
+  <script src="../js/archivo.js"></script>
+
+</body>
+</html>
