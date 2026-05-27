@@ -74,6 +74,48 @@ class ArticleDao {
 
         return $stmt->execute();
     }
+    
+    // Actualitzar article
+    public function actualitzarArticle($article) {
+        $query = "UPDATE article SET titular = :titular, subtitular = :subtitular,  cuerpo = :cuerpo,
+         autor = :autor, categoria = :categoria, fecha = :fecha, destacado = :destacado, vistas = :vistas
+         WHERE id = :id
+        ";
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindValue(':id', $article->getId());
+        $stmt->bindValue(':titular', $article->getTitular());
+        $stmt->bindValue(':subtitular', $article->getSubtitular());
+        $stmt->bindValue(':cuerpo', $article->getCuerpo());
+        $stmt->bindValue(':autor', $article->getAutor());
+        $stmt->bindValue(':categoria', $article->getCategoria());
+        $stmt->bindValue(':fecha', $article->getFecha());
+        $stmt->bindValue(':destacado', $article->getDestacado());
+        $stmt->bindValue(':vistas', $article->getVistas());
+
+        return $stmt->execute();
+    }
+
+    // Incrementar vistas d'un article (PATCH)
+    public function actualitzarVistaArticle($article) {
+        $query = "UPDATE article SET vistas = :vistas WHERE id = :id";
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindValue(':id', $article->getId());
+        $stmt->bindValue(':vistas', $article->getVistas());
+
+        return $stmt->execute();
+    }
+
+    // DELETE article
+    public function deleteArticle($article) {
+        $query = "DELETE FROM articles WHERE id = :id";
+        $stmt = $this->connection-> prepare($query);
+
+        $stmt->bindValue(':id', $categoria->getId());
+
+        return $stmt->execute();
+    }
 
 }
 
