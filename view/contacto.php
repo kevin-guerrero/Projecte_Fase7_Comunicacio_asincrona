@@ -5,12 +5,12 @@
 
   <nav class="navbar" aria-label="Navegación principal">
     <ul>
-      <li><a href="../index.html">Inicio</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="articulo.html">Artículo</a></li>
-      <li><a href="redaccion.html">Redacción</a></li>
-      <li><a href="archivo.html">Archivo</a></li>
-      <li><a href="contacto.html" class="activo" aria-current="page">Contacto</a></li>
+      <li><a href="../index.php">Inicio</a></li>
+      <li><a href="noticias.php">Noticias</a></li>
+      <li><a href="articulo.php">Artículo</a></li>
+      <li><a href="redaccion.php">Redacción</a></li>
+      <li><a href="archivo.php">Archivo</a></li>
+      <li><a href="contacto.php" class="activo" aria-current="page">Contacto</a></li>
     </ul>
   </nav>
 

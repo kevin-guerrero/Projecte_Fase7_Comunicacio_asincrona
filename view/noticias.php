@@ -5,12 +5,12 @@
 
   <nav class="navbar" aria-label="Navegación principal">
     <ul>
-      <li><a href="../index.html">Inicio</a></li>
-      <li><a href="noticias.html" class="activo" aria-current="page">Noticias</a></li>
-      <li><a href="articulo.html">Artículo</a></li>
-      <li><a href="redaccion.html">Redacción</a></li>
-      <li><a href="archivo.html">Archivo</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="../index.php">Inicio</a></li>
+      <li><a href="noticias.php" class="activo" aria-current="page">Noticias</a></li>
+      <li><a href="articulo.php">Artículo</a></li>
+      <li><a href="redaccion.php">Redacción</a></li>
+      <li><a href="archivo.php">Archivo</a></li>
+      <li><a href="contacto.php">Contacto</a></li>
     </ul>
   </nav>
 
@@ -19,7 +19,7 @@
     <section aria-label="Listado de noticias">
       <header class="notis-header" style="margin-top:1.5rem;">
         <h2 class="etiqueta-seccion">Todas las noticias</h2>
-        <a href="redaccion.html" class="btn btn-primario">+ Nueva noticia</a>
+        <a href="redaccion.php" class="btn btn-primario">+ Nueva noticia</a>
       </header>
 
       <!-- Filtros por categoría -->

@@ -1,16 +1,16 @@
 <?php
-  include_once '../includes/head.html';
-  include_once '../includes/header.html';
+  include_once 'includes/head.html';
+  include_once 'includes/header.html';
 ?>
 
   <nav class="navbar" aria-label="Navegación principal">
     <ul>
-      <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
-      <li><a href="view/noticias.html">Noticias</a></li>
-      <li><a href="view/articulo.html">Artículo</a></li>
-      <li><a href="view/redaccion.html">Redacción</a></li>
-      <li><a href="view/archivo.html">Archivo</a></li>
-      <li><a href="view/contacto.html">Contacto</a></li>
+      <li><a href="index.php" class="activo" aria-current="page">Inicio</a></li>
+      <li><a href="view/noticias.php">Noticias</a></li>
+      <li><a href="view/articulo.php">Artículo</a></li>
+      <li><a href="view/redaccion.php">Redacción</a></li>
+      <li><a href="view/archivo.php">Archivo</a></li>
+      <li><a href="view/contacto.php">Contacto</a></li>
     </ul>
   </nav>
 
@@ -35,7 +35,7 @@
   </main>
 
   <?php
-    include_once '../includes/footer.html';
+    include_once 'includes/footer.html';
   ?>
 
   <script src="js/index.js"></script>
