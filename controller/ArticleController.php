@@ -1,5 +1,5 @@
 <?php 
-include_once  __DIR__ .'dao/ArticleDao.php';
+include_once  __DIR__ .'/../dao/ArticleDao.php';
 
 class ArticleController {
     private $articleDao;
