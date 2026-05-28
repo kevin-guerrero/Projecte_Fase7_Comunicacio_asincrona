@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redacción — The Daily Bugle</title>
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="header-meta">
-      <span class="lema">"Tu única fuente de verdad sobre el enmascarado menace"</span>
-      <time id="fecha-actual"></time>
-      <span>Nueva York · Est. 1962</span>
-    </div>
-    <div class="cabecera-titulo">
-      <h1>The Daily Bugle</h1>
-      <p class="subtitulo-cabecera">El periódico de referencia de la ciudad de Nueva York</p>
-    </div>
-  </header>
+<?php
+  include_once '../includes/head.html';
+  include_once '../includes/header.html';
+?>
 
   <nav class="navbar" aria-label="Navegación principal">
     <ul>
@@ -95,9 +78,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 1962 The Daily Bugle · J. Jonah Jameson, Director · Nueva York</p>
-  </footer>
+  <?php
+    include_once '../includes/footer.html';
+  ?>
 
   <script src="../js/redaccion.js"></script>
 
