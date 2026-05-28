@@ -10,7 +10,7 @@ class ArticleDao {
 
     // Obtenir tots els articles
     public function obtenirArticles() {
-        $query = "SELECT * FROM articles";
+        $query = "SELECT * FROM articulos";
         $stmt = $this->connection->prepare($query);
 
         $result = $stmt->execute();
@@ -35,7 +35,7 @@ class ArticleDao {
 
     // Obtenir un article per ID
     public function obtenirArticlePerId($id) {
-        $stmt = $this->connection->prepare("SELECT * FROM articles WHERE id = :id");
+        $stmt = $this->connection->prepare("SELECT * FROM articulos WHERE id = :id");
         $stmt->bindValue(':id', $id, SQLITE3_INTEGER);
         $result = $stmt->execute();
 
@@ -58,7 +58,7 @@ class ArticleDao {
 
     // Crear un nou article
     public function crearArticle($article) {
-        $query = "INSERT INTO articles (titular, subtitular, cuerpo, autor, categoria, fecha, destacado, vistas) 
+        $query = "INSERT INTO articulos (titular, subtitular, cuerpo, autor, categoria, fecha, destacado, vistas) 
                   VALUES (:titular, :subtitular, :cuerpo, :autor, :categoria, :fecha, :destacado, :vistas)
         ";
         $stmt = $this->connection->prepare($query);
@@ -77,7 +77,7 @@ class ArticleDao {
     
     // Actualitzar article
     public function actualitzarArticle($article) {
-        $query = "UPDATE article SET titular = :titular, subtitular = :subtitular,  cuerpo = :cuerpo,
+        $query = "UPDATE articulos SET titular = :titular, subtitular = :subtitular,  cuerpo = :cuerpo,
          autor = :autor, categoria = :categoria, fecha = :fecha, destacado = :destacado, vistas = :vistas
          WHERE id = :id
         ";
@@ -98,7 +98,7 @@ class ArticleDao {
 
     // Incrementar vistas d'un article (PATCH)
     public function actualitzarVistaArticle($article) {
-        $query = "UPDATE article SET vistas = :vistas WHERE id = :id";
+        $query = "UPDATE articulos SET vistas = :vistas WHERE id = :id";
         $stmt = $this->connection->prepare($query);
 
         $stmt->bindValue(':id', $article->getId());
@@ -109,7 +109,7 @@ class ArticleDao {
 
     // DELETE article
     public function deleteArticle($article) {
-        $query = "DELETE FROM articles WHERE id = :id";
+        $query = "DELETE FROM articulos WHERE id = :id";
         $stmt = $this->connection-> prepare($query);
 
         $stmt->bindValue(':id', $article->getId());
