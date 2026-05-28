@@ -112,7 +112,7 @@ class ArticleDao {
         $query = "DELETE FROM articles WHERE id = :id";
         $stmt = $this->connection-> prepare($query);
 
-        $stmt->bindValue(':id', $categoria->getId());
+        $stmt->bindValue(':id', $article->getId());
 
         return $stmt->execute();
     }
