@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 
 function mostrarFecha() {
   const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -15,7 +15,7 @@ function formatearFecha(fechaStr) {
 
 async function incrementarVistas(id) { 
     try {
-        await fetch(`${API}/articulos/${id}`, { 
+        await fetch(`${API}/article.php?id=${id}`, { 
             method: 'PATCH'
         });
     } catch (error) { 
@@ -25,7 +25,7 @@ async function incrementarVistas(id) {
 
 async function cargarArticulosRelacionados(categoriaActual, idActual) {
   try {
-    const respuesta = await fetch(`${API}/articulos`);
+    const respuesta = await fetch(`${API}/article.php?categoria=${categoriaActual}`);
     const articulos = await respuesta.json();
     const relacionados = articulos
       .filter(a => a.categoria === categoriaActual && a.id !== idActual)
@@ -34,9 +34,9 @@ async function cargarArticulosRelacionados(categoriaActual, idActual) {
     if (relacionados.length === 0) return '';
 
     const items = relacionados.map(a => `
-      <article class="articulo-card" style="margin-bottom:0.5rem;" onclick="window.location.href='articulo.html?id=${a.id}'">
+      <article class="articulo-card" style="margin-bottom:0.5rem;" onclick="window.location.href='articulo.php?id=${a.id}'">
         <span class="categoria-badge">${a.categoria}</span>
-        <a href="articulo.html?id=${a.id}" class="titular">${a.titular}</a>
+        <a href="articulo.php?id=${a.id}" class="titular">${a.titular}</a>
         <p class="meta"><span>${a.autor}</span><span>${formatearFecha(a.fecha)}</span></p>
       </article>
     `).join('');
@@ -69,7 +69,7 @@ async function cargarArticulo() {
   }
 
   try {
-    const respuesta = await fetch(`${API}/articulos/${id}`);
+    const respuesta = await fetch(`${API}/article.php?id=${id}`);
     if (!respuesta.ok) throw new Error('Artículo no encontrado');
     const articulo = await respuesta.json();
 
@@ -105,8 +105,8 @@ async function cargarArticulo() {
         <p style="font-size:15px; line-height:1.9; color:var(--tinta); margin-top:1rem;">${articulo.cuerpo}</p>
 
         <footer style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="noticias.html" class="btn btn-secundario">← Volver a Noticias</a>
-          <a href="redaccion.html?id=${articulo.id}" class="btn btn-primario">Editar artículo</a>
+          <a href="noticias.php" class="btn btn-secundario">← Volver a Noticias</a>
+          <a href="redaccion.php?id=${articulo.id}" class="btn btn-primario">Editar artículo</a>
         </footer>
       </article>
 
@@ -117,7 +117,7 @@ async function cargarArticulo() {
       <div class="error-msg" style="margin-top:1.5rem;">
         <strong>Error al cargar el artículo</strong><br>
         <em>${error.message}</em><br>
-        <a href="noticias.html">← Volver a noticias</a>
+        <a href="noticias.php">← Volver a noticias</a>
       </div>
     `;
   }

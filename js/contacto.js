@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 
 function mostrarFecha() {
   const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

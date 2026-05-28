@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 
 function mostrarFecha() {
   const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -16,7 +16,7 @@ function formatearFecha(fechaStr) {
 async function cargarDestacada() {
   const seccion = document.getElementById('noticia-destacada');
   try {
-    const respuesta = await fetch(`${API}/articulos`);
+    const respuesta = await fetch(`${API}/article.php?destacado=1`);
     if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
     const articulos = await respuesta.json();
     const destacado = articulos.find(a => a.destacado) || articulos[0];
@@ -29,13 +29,13 @@ async function cargarDestacada() {
     seccion.innerHTML = `
       <div class="noticia-principal">
         <span class="etiqueta-seccion roja">${destacado.categoria}</span>
-        <a href="view/articulo.html?id=${destacado.id}" class="titular-grande">${destacado.titular}</a>
+        <a href="view/articulo.php?id=${destacado.id}" class="titular-grande">${destacado.titular}</a>
         <p class="subtitular-grande">${destacado.subtitular}</p>
         <p class="meta-destacado">
           Por <strong>${destacado.autor}</strong> · ${formatearFecha(destacado.fecha)} · ${destacado.vistas.toLocaleString()} lecturas
         </p>
         <p class="cuerpo-preview">${destacado.cuerpo.substring(0, 300)}...</p>
-        <a href="view/articulo.html?id=${destacado.id}" class="btn btn-primario" style="margin-top:1rem;display:inline-block;">Leer artículo completo</a>
+        <a href="view/articulo.php?id=${destacado.id}" class="btn btn-primario" style="margin-top:1rem;display:inline-block;">Leer artículo completo</a>
       </div>
     `;
   } catch (error) {
@@ -52,7 +52,7 @@ async function cargarDestacada() {
 async function cargarNoticias() {
   const seccion = document.getElementById('lista-noticias');
   try {
-    const respuesta = await fetch(`${API}/articulos`);
+    const respuesta = await fetch(`${API}/article.php`);
     if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
     const articulos = await respuesta.json();
 
@@ -70,11 +70,11 @@ async function cargarNoticias() {
       const article = document.createElement('article');
       article.classList.add('articulo-card');
       article.addEventListener('click', () => {
-        window.location.href = `view/articulo.html?id=${a.id}`;
+        window.location.href = `view/articulo.php?id=${a.id}`;
       });
       article.innerHTML = `
         <span class="categoria-badge">${a.categoria}</span>
-        <a href="view/articulo.html?id=${a.id}" class="titular">${a.titular}</a>
+        <a href="view/articulo.php?id=${a.id}" class="titular">${a.titular}</a>
         <p class="subtitular">${a.subtitular}</p>
         <p class="meta">
           <span>${a.autor}</span>

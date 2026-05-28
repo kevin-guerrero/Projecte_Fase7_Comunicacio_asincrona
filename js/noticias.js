@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 let todosLosArticulos = [];
 let categoriaActiva = 'todas';
 let idParaBorrar = null;
@@ -31,7 +31,7 @@ function renderizarArticulos(articulos) {
     article.innerHTML = `
       <div class="articulo-lista-info">
         <span class="categoria-badge">${a.categoria}</span>
-        <a href="articulo.html?id=${a.id}" class="titular">${a.titular}</a>
+        <a href="articulo.php?id=${a.id}" class="titular">${a.titular}</a>
         <p class="subtitular">${a.subtitular}</p>
         <p class="meta">
           <span>${a.autor}</span>
@@ -40,7 +40,7 @@ function renderizarArticulos(articulos) {
         </p>
       </div>
       <div class="articulo-lista-acciones">
-        <a href="redaccion.html?id=${a.id}" class="btn btn-secundario">Editar</a>
+        <a href="redaccion.php?id=${a.id}" class="btn btn-secundario">Editar</a>
         <button class="btn btn-peligro btn-borrar" data-id="${a.id}">Eliminar</button>
       </div>
     `;
@@ -77,7 +77,7 @@ function filtrarYRenderizar() {
 
 async function cargarCategorias() {
   try {
-    const respuesta = await fetch(`${API}/categorias`);
+    const respuesta = await fetch(`${API}/category.php`);
     const categorias = await respuesta.json();
     const contenedor = document.getElementById('filtros');
 
@@ -102,7 +102,7 @@ async function cargarCategorias() {
 async function cargarArticulos() {
   const contenedor = document.getElementById('lista-articulos');
   try {
-    const respuesta = await fetch(`${API}/articulos`);
+    const respuesta = await fetch(`${API}/article.php`);
     if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
     todosLosArticulos = await respuesta.json();
     renderizarArticulos(todosLosArticulos);
@@ -113,7 +113,7 @@ async function cargarArticulos() {
 
 async function eliminarArticulo(id) {
   try {
-    const respuesta = await fetch(`${API}/articulos/${id}`, { method: 'DELETE' });
+    const respuesta = await fetch(`${API}/article.php?id=${id}`, { method: 'DELETE' });
     if (!respuesta.ok) throw new Error('Error al eliminar');
     todosLosArticulos = todosLosArticulos.filter(a => a.id !== id);
     filtrarYRenderizar();

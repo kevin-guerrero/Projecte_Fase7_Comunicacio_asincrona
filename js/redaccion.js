@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 let modoEdicion = false;
 let idEdicion = null;
 
@@ -9,18 +9,22 @@ function mostrarFecha() {
     hoy.charAt(0).toUpperCase() + hoy.slice(1);
 }
 
-// Cargar selects desde la API
 async function cargarAutores() {
   try {
-    const respuesta = await fetch(`${API}/autores`);
-    const autores = await respuesta.json();
+    const respuesta = await fetch(`${API}/article.php`);
+    const articulos = await respuesta.json();
+
     const select = document.getElementById('autor');
-    autores.forEach(a => {
+
+    const autoresUnicos = [...new Set(articulos.map(a => a.autor))];
+
+    autoresUnicos.forEach(nombre => {
       const option = document.createElement('option');
-      option.value = a.nombre;
-      option.textContent = `${a.nombre} (${a.cargo})`;
+      option.value = nombre;
+      option.textContent = nombre;
       select.appendChild(option);
     });
+
   } catch (error) {
     console.error('Error al cargar autores:', error);
   }
@@ -28,15 +32,21 @@ async function cargarAutores() {
 
 async function cargarCategorias() {
   try {
-    const respuesta = await fetch(`${API}/categorias`);
+    const respuesta = await fetch(`${API}/category.php`);
     const categorias = await respuesta.json();
+
     const select = document.getElementById('categoria');
+
     categorias.forEach(cat => {
       const option = document.createElement('option');
-      option.value = cat;
-      option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+
+      option.value = cat.nom;
+      option.textContent =
+        cat.nom.charAt(0).toUpperCase() + cat.nom.slice(1);
+
       select.appendChild(option);
     });
+
   } catch (error) {
     console.error('Error al cargar categorías:', error);
   }
@@ -45,7 +55,7 @@ async function cargarCategorias() {
 // Si hay ?id en la URL, cargar datos para editar
 async function cargarParaEditar(id) {
   try {
-    const respuesta = await fetch(`${API}/articulos/${id}`);
+    const respuesta = await fetch(`${API}/article.php?id=${id}`);
     if (!respuesta.ok) throw new Error('Artículo no encontrado');
     const articulo = await respuesta.json();
 
@@ -133,13 +143,13 @@ document.getElementById('form-redaccion').addEventListener('submit', async (e) =
   try {
     let respuesta;
     if (modoEdicion) {
-      respuesta = await fetch(`${API}/articulos/${idEdicion}`, {
+      respuesta = await fetch(`${API}/article.php?id=${idEdicion}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datos)
       });
     } else {
-      respuesta = await fetch(`${API}/articulos`, {
+      respuesta = await fetch(`${API}/article.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datos)
@@ -152,7 +162,7 @@ document.getElementById('form-redaccion').addEventListener('submit', async (e) =
       <div style="background:#e8f5e9; border:1px solid #388e3c; color:#1b5e20; padding:1rem; font-size:13px;">
         <strong>¡Noticia ${modoEdicion ? 'actualizada' : 'publicada'} con éxito!</strong>
         Jameson lo aprueba (a regañadientes).<br>
-        <a href="noticias.html" style="color:#1b5e20; font-weight:700;">← Ver todas las noticias</a>
+        <a href="noticias.php" style="color:#1b5e20; font-weight:700;">← Ver todas las noticias</a>
       </div>
     `;
 

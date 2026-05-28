@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '../API';
 let todosLosArticulos = [];
 
 function mostrarFecha() {
@@ -43,12 +43,12 @@ function renderizarTabla(articulos) {
   articulos.forEach(a => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><a href="articulo.html?id=${a.id}" class="tabla-link">${a.titular}</a></td>
+      <td><a href="articulo.php?id=${a.id}" class="tabla-link">${a.titular}</a></td>
       <td><span class="categoria-badge">${a.categoria}</span></td>
       <td>${a.autor}</td>
       <td>${formatearFecha(a.fecha)}</td>
       <td>${a.vistas.toLocaleString()}</td>
-      <td><a href="articulo.html?id=${a.id}" class="btn btn-secundario" style="padding:4px 12px;font-size:10px;">Leer</a></td>
+      <td><a href="articulo.php?id=${a.id}" class="btn btn-secundario" style="padding:4px 12px;font-size:10px;">Leer</a></td>
     `;
     tbody.appendChild(tr);
   });
@@ -88,15 +88,20 @@ function aplicarFiltros() {
 
 async function cargarAutores() {
   try {
-    const respuesta = await fetch(`${API}/autores`);
-    const autores = await respuesta.json();
+    const respuesta = await fetch(`${API}/article.php`);
+    const articulos = await respuesta.json();
+
     const select = document.getElementById('filtro-autor');
-    autores.forEach(a => {
+
+    const autoresUnicos = [...new Set(articulos.map(a => a.autor))];
+
+    autoresUnicos.forEach(nombre => {
       const option = document.createElement('option');
-      option.value = a.nombre;
-      option.textContent = a.nombre;
+      option.value = nombre;
+      option.textContent = nombre;
       select.appendChild(option);
     });
+
   } catch (error) {
     console.error('Error al cargar autores:', error);
   }
@@ -105,7 +110,7 @@ async function cargarAutores() {
 async function cargarArticulos() {
   const contenedor = document.getElementById('tabla-archivo');
   try {
-    const respuesta = await fetch(`${API}/articulos`);
+    const respuesta = await fetch(`${API}/article.php`);
     if (!respuesta.ok) throw new Error('Error al conectar con el servidor');
     todosLosArticulos = await respuesta.json();
     aplicarFiltros();
