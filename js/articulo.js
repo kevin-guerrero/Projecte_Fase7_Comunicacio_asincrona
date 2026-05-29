@@ -62,7 +62,7 @@ async function cargarArticulo() {
     contenedor.innerHTML = `
       <div style="margin-top:2rem;">
         <p class="error-msg">No se ha especificado ningún artículo.<br>
-        Selecciona uno desde la sección de <a href="noticias.html">Noticias</a>.</p>
+        Selecciona uno desde la sección de <a href="noticias.php">Noticias</a>.</p>
       </div>
     `;
     return;

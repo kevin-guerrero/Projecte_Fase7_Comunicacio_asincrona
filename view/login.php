@@ -74,7 +74,6 @@
         <h2 class="etiqueta-seccion">Sessió activa</h2>
         <p>Benvingut/da, <strong id="nom-usuari"></strong> (<span id="rol-usuari"></span>).</p>
         <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
-          <a href="perfil.php" class="btn btn-secundario">El meu perfil</a>
           <a href="redaccion.php" class="btn btn-primario">+ Nova notícia</a>
           <button id="btn-logout" class="btn btn-peligro">Tancar sessió</button>
         </div>
