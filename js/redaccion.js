@@ -32,7 +32,7 @@ async function cargarAutores() {
 
 async function cargarCategorias() {
   try {
-    const respuesta = await fetch(`${API}/category.php`);
+    const respuesta = await fetch(`${API}/categoria.php`);
     const categorias = await respuesta.json();
 
     const select = document.getElementById('categoria');

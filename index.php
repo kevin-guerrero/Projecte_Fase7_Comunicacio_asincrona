@@ -11,6 +11,7 @@
       <li><a href="view/redaccion.php">Redacción</a></li>
       <li><a href="view/archivo.php">Archivo</a></li>
       <li><a href="view/contacto.php">Contacto</a></li>
+      <li><a href="view/login.php">Login</a></li>
     </ul>
   </nav>
 

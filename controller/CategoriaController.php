@@ -2,30 +2,30 @@
 include_once __DIR__ . '/../dao/CategoriaDao.php';
 
 class CategoriaController {
-    private $categoryDao;
+    private $categoriaDao;
 
     public function __construct($connection) {
-        $this->categoryDao = new CategoriaDao($connection);
+        $this->categoriaDao = new CategoriaDao($connection);
     }
 
     public function obtenirCategories() {
-        return $this->categoryDao->obtenirCategories();
+        return $this->categoriaDao->obtenirCategories();
     }
 
     public function obtenirCategoriaPerId($id) {
-        return $this->categoryDao->obtenirCategoriaPerId($id);
+        return $this->categoriaDao->obtenirCategoriaPerId($id);
     }
 
     public function crearCategoria($categoria) {
-        $this->categoryDao->crearCategoria($categoria);
+        $this->categoriaDao->crearCategoria($categoria);
     }
 
     public function actualitzarCategoria($categoria) {
-        $this->categoryDao->actualitzarCategoria($categoria);
+        $this->categoriaDao->actualitzarCategoria($categoria);
     }
 
     public function eliminarCategoria($id) {
-        $this->categoryDao->eliminarCategoria($id);
+        $this->categoriaDao->eliminarCategoria($id);
     }
 }
 ?>

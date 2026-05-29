@@ -11,6 +11,7 @@
       <li><a href="redaccion.php">Redacción</a></li>
       <li><a href="archivo.php" class="activo" aria-current="page">Archivo</a></li>
       <li><a href="contacto.php">Contacto</a></li>
+      <li><a href="login.php">Login</a></li>
     </ul>
   </nav>
 

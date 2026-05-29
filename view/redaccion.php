@@ -11,6 +11,7 @@
       <li><a href="redaccion.php" class="activo" aria-current="page">Redacción</a></li>
       <li><a href="archivo.php">Archivo</a></li>
       <li><a href="contacto.php">Contacto</a></li>
+      <li><a href="login.php">Login</a></li>
     </ul>
   </nav>
 
@@ -69,7 +70,7 @@
 
         <div style="display:flex; gap:12px; margin-top:1.5rem; flex-wrap:wrap;">
           <button type="submit" class="btn btn-primario" id="btn-submit">Publicar noticia</button>
-          <a href="noticias.html" class="btn btn-secundario">Cancelar</a>
+          <a href="noticias.php" class="btn btn-secundario">Cancelar</a>
         </div>
 
         <div id="mensaje-resultado" style="margin-top:1rem;"></div>
